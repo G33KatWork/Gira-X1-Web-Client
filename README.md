@@ -115,10 +115,16 @@ The pipeline in `.gitlab-ci.yml` installs Python and innoextract, runs setup to
 download/extract/patch the app, then builds and pushes the nginx image to this
 project's registry (`CI_REGISTRY_IMAGE`). Branch and tag pipelines publish the
 full commit SHA as the image tag; the default branch also publishes `latest`.
+Both tags include `linux/amd64` and `linux/arm64/v8`; Docker selects the matching
+architecture when pulling. The job uses a Buildx container builder and its
+[bundled QEMU emulators](https://docs.docker.com/build/building/multi-platform/)
+to validate nginx for both platforms. The extracted web assets are shared by both.
 
 Enable the project's container registry and use a runner configured for
 [Docker-in-Docker with TLS](https://docs.gitlab.com/ci/docker/docker_in_docker/#docker-in-docker-with-tls-enabled-in-the-docker-executor):
 privileged Docker services with `/certs/client` shared between the job and service.
+The job stores the daemon endpoint and client certificates in a named Docker
+context so Buildx can connect with TLS, then selects its builder explicitly.
 GitLab supplies `CI_REGISTRY`, `CI_REGISTRY_USER`, and `CI_REGISTRY_PASSWORD`
 automatically; no personal registry credentials need to be added to the repository.
 The runner needs outbound access to Gira downloads, Alpine packages, Docker Hub,
