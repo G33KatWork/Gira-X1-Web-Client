@@ -1,0 +1,21 @@
+{
+  "id": "detail-dimensions",
+  "reason": "Standards mode exposes missing containing-block heights: detail controls are clipped by zero-height flip wrappers, the dimmer's table creates a zero-height anonymous cell, and the SVG knob wrapper ignores sizing on inline/div elements. Supply real CSS dimensions while retaining control and animation behavior.",
+  "edits": [
+    {
+      "file": "css/animations-gira.css",
+      "before": ".coverflip-container {\n  height: 100%;",
+      "after": "/* Keep percentage-sized controls inside definite-height flip wrappers. */\n.coverflip-viewsides,\n.coverflip-side.front {\n  height: 100%;\n}\n.coverflip-container {\n  height: 100%;"
+    },
+    {
+      "file": "css/layout-prototype.css",
+      "before": ".dimabs-container {\n  display: table;\n  margin: 0 auto;\n}",
+      "after": "/* This control has positioned children, not table cells. */\n.dimabs-container {\n  display: block;\n  margin: 0 auto;\n}"
+    },
+    {
+      "file": "layout.loader.js",
+      "before": "this.$c=m(document.createElement(\"div\")).attr({\"data-bind\":\"template:'\"+this.o.svgKnobKoTemplate+\"'\"}),this.$div=m('<div style=\"'+(this.o.inline?\"display:inline;\":\"\")+\"width:\"+this.o.width+\";height:\"+this.o.height+';\"></div>')",
+      "after": "this.$c=m(document.createElement(\"div\")).css({width:\"100%\",height:\"100%\"}).attr({\"data-bind\":\"template:'\"+this.o.svgKnobKoTemplate+\"'\"}),this.$div=m('<div style=\"'+(this.o.inline?\"display:inline-block;\":\"\")+\"width:\"+this.o.width+\";height:\"+this.o.height+';\"></div>')"
+    }
+  ]
+}

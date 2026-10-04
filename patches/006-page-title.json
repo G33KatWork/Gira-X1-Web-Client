@@ -1,0 +1,11 @@
+{
+  "id": "page-title",
+  "reason": "Give browser tabs and bookmarks a readable title on the actual application page.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "    <head>\n        <meta http-equiv=\"content-type\"",
+      "after": "    <head>\n        <title>Gira Smart Home</title>\n        <meta http-equiv=\"content-type\""
+    }
+  ]
+}

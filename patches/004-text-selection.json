@@ -1,0 +1,11 @@
+{
+  "id": "text-selection",
+  "reason": "Restore normal text selection, its visible highlight, and browser tap feedback. Keep control-specific drag behavior.",
+  "edits": [
+    {
+      "file": "css/base.css",
+      "before": "*::selection {\n  background: transparent;\n}\n* {\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\nhtml * {\n  -webkit-user-select: none;\n}\n",
+      "after": "/* Browser defaults provide selection, selection highlighting, and tap feedback. */\n"
+    }
+  ]
+}

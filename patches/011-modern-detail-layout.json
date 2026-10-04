@@ -1,0 +1,16 @@
+{
+  "id": "modern-detail-layout",
+  "reason": "Use the existing modern flex detail layout in all browsers. The vendor gates it by Chrome version (and recent iOS), incorrectly leaving Firefox on legacy percentage heights. Keep the vendor CSS class name to avoid rewriting its responsive rules.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "<div class=\"description-row-container\" data-bind=\"css: {'chrome-greater-73' : window.Gira.Globals.getChromeVersion() > 73}\">",
+      "after": "<div class=\"description-row-container chrome-greater-73\">"
+    },
+    {
+      "file": "layout.html",
+      "before": "<gira-swiper data-automation-id=\"detailViewSwiper\" class=\"swiper-container-detail-view\" bulletsMode=\"off\" data-bind=\"template: {name: 'gira-swiper-detail-slide-template', foreach: model.content}, css: {'chrome-greater-73' : window.Gira.Globals.getChromeVersion() > 73}\"></gira-swiper>",
+      "after": "<gira-swiper data-automation-id=\"detailViewSwiper\" class=\"swiper-container-detail-view chrome-greater-73\" bulletsMode=\"off\" data-bind=\"template: {name: 'gira-swiper-detail-slide-template', foreach: model.content}\"></gira-swiper>"
+    }
+  ]
+}

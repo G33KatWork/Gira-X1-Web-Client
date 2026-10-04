@@ -1,0 +1,7 @@
+services:
+  gira:
+    build: .
+    image: gira-smart-home:local
+    ports:
+      - "${GIRA_BIND:-0.0.0.0}:${GIRA_PORT:-8080}:80"
+    restart: unless-stopped

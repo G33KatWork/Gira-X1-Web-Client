@@ -1,0 +1,6 @@
+# Only generated browser assets and nginx configuration belong in the image.
+**
+!Dockerfile
+!nginx.conf
+!web/
+!web/**

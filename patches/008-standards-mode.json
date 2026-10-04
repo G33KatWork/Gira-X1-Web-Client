@@ -1,0 +1,11 @@
+{
+  "id": "standards-mode",
+  "reason": "Declare HTML5 so browsers render the app in standards mode instead of quirks mode.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "<html data-theme='light'>\n    <head>",
+      "after": "<!DOCTYPE html>\n<html data-theme='light'>\n    <head>"
+    }
+  ]
+}

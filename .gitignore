@@ -1,0 +1,7 @@
+*.exe
+web/
+.gira-setup-*/
+__pycache__/
+*.orig
+*.rej
+.env

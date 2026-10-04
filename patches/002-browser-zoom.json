@@ -1,0 +1,11 @@
+{
+  "id": "browser-zoom",
+  "reason": "Replace the conflicting viewport tags with one viewport that permits browser zoom.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "        <meta name=\"viewport\" content=\"width=device-width, height=device-height minimum-scale=1.0, user-scalable=0\"/>\n        <meta name=\"viewport\" width=\"device-width\" />",
+      "after": "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
+    }
+  ]
+}

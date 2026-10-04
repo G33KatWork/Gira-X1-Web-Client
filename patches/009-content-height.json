@@ -1,0 +1,11 @@
+{
+  "id": "content-height",
+  "reason": "The content wrapper has auto height, so Firefox cannot resolve its children's percentage heights and collapses the room view to zero. Give it a definite page height; the existing child calculations already subtract the header and also size settings/split views.",
+  "edits": [
+    {
+      "file": "css/layout-prototype.css",
+      "before": "#content {\n  height: calc(100% - 9.375rem);\n}",
+      "after": "/* Child views subtract their own header height from the full page height. */\n#content-container {\n  height: 100%;\n}\n#content {\n  height: calc(100% - 9.375rem);\n}"
+    }
+  ]
+}

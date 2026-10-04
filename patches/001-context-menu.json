@@ -1,0 +1,16 @@
+{
+  "id": "context-menu",
+  "reason": "Restore the browser menu on page content and inputs, including after app initialization.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "<body oncontextmenu=\"return false;\">",
+      "after": "<body>"
+    },
+    {
+      "file": "layout.loader.js",
+      "before": "function allowContextMenu(){document.body.oncontextmenu=function(e){try{if(\"INPUT\"===e.target.nodeName&&(navigator.userAgent.match(/Electron/i)||navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/ipad/i)||navigator.userAgent.match(/Android/i)))return!0}catch{}return!1}}",
+      "after": "function allowContextMenu(){document.body.oncontextmenu=null}"
+    }
+  ]
+}

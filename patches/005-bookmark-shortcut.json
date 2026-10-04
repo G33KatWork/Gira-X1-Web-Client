@@ -1,0 +1,11 @@
+{
+  "id": "bookmark-shortcut",
+  "reason": "Keep Ctrl+D available for browser bookmarks. The vendor demo handler opens a missing developer page.",
+  "edits": [
+    {
+      "file": "layout.loader.js",
+      "before": ",window.addEventListener(\"keydown\",e=>{e.ctrlKey&&\"d\"===e.key&&(e.preventDefault(),window.open(\"demo/controls.html\"))})",
+      "after": ""
+    }
+  ]
+}

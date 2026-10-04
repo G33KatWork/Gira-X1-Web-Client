@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "tested_versions": ["6.0.72"],
+  "patches": [
+    "001-context-menu.json",
+    "002-browser-zoom.json",
+    "003-fullscreen.json",
+    "004-text-selection.json",
+    "005-bookmark-shortcut.json",
+    "006-page-title.json",
+    "008-standards-mode.json",
+    "009-content-height.json",
+    "010-detail-dimensions.json",
+    "011-modern-detail-layout.json"
+  ]
+}

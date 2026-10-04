@@ -1,0 +1,11 @@
+{
+  "id": "fullscreen",
+  "reason": "Allow user-requested DOM fullscreen to persist instead of immediately exiting it.",
+  "edits": [
+    {
+      "file": "layout.html",
+      "before": "            document.addEventListener(\"fullscreenchange\", () => {\n                if (document.fullscreenElement) {\n                    document.exitFullscreen();\n                }\n            });",
+      "after": "            // Browser build: fullscreen remains under the user's control."
+    }
+  ]
+}
