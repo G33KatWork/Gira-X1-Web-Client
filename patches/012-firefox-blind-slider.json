@@ -1,0 +1,11 @@
+{
+  "id": "firefox-blind-slider",
+  "reason": "Firefox does not use the WebKit thumb pseudo-element that draws and enables the blind sliders. Give its range thumbs the same visible handle and restore pointer input on the range controls.",
+  "edits": [
+    {
+      "file": "css/blind.absolute-prototype.css",
+      "before": ".gira-slider-bar input[type=\"range\"]:focus {\n  outline: none;\n}",
+      "after": ".gira-slider-bar input[type=\"range\"]:focus {\n  outline: none;\n}\n/* The WebKit thumb is the only enabled hit target above. Firefox needs its own\n   thumb and an enabled range input for both blind and slat dragging. */\n@supports selector(input::-moz-range-thumb) {\n  .gira-slider-bar input[type=\"range\"] {\n    -moz-appearance: none;\n    pointer-events: auto;\n  }\n  .gira-slider-bar input[type=\"range\"]::-moz-range-track {\n    background: transparent;\n    border: 0;\n  }\n  .gira-slider-bar input[type=\"range\"]::-moz-range-thumb {\n    -moz-appearance: none;\n    width: 2.25rem;\n    height: 2.25rem;\n    border-radius: 50%;\n    border: 1px solid #c8c8c8;\n    background: linear-gradient(to right, #e1e1e1 0%, #fafafa 100%);\n    box-shadow: 3px 0 5px 0 rgba(0, 0, 0, 0.2), inset 1px 0 1px #ffffff;\n  }\n  .gira-slider-bar input[type=\"range\"]::-moz-range-thumb:active {\n    background: linear-gradient(to right, #d7d7d7 0%, #e6e6e6 100%);\n    box-shadow: 3px 0 5px 0 rgba(0, 0, 0, 0.2), inset 1px 0 1px #e6e6e6;\n  }\n}"
+    }
+  ]
+}

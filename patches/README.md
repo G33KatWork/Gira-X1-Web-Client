@@ -21,6 +21,7 @@ There is no fuzzy matching against changed vendor bundles.
 | 009 | Give the content wrapper a definite height so Firefox renders rooms |
 | 010 | Size detail flip wrappers and SVG knob hosts; remove the dimmer's table layout |
 | 011 | Use the vendor's modern flex detail layout in Firefox as well as Chrome |
+| 012 | Draw and enable blind and slat slider thumbs in Firefox |
 
 Patch 009 retains the child views' existing header-height calculations. The
 Firefox failure was reproduced with room data in the DOM but a zero-height
@@ -38,6 +39,10 @@ Patch 010 fixes those containing blocks without changing control behavior.
 The vendor also gates its modern flex layout on a Chrome-version check, sending
 Firefox through obsolete percentage sizing. Patch 011 uses the existing modern
 layout classes directly in the two detail templates, without spoofing a browser.
+The blind and slat sliders likewise style only WebKit range thumbs and disable
+pointer events on the range inputs. Patch 012 supplies a Firefox thumb and enables
+input on those two sliders, so their handles render and accept dragging.
+
 Disposable browser checks exercised demo dimmers in Firefox and Chrome at
 1280×900, 900×1200, 1280×600, and 1920×1080. Dial/button centers agree within one
 pixel and SVG/control heights remain positive and unclipped. Demo dimmer clicks

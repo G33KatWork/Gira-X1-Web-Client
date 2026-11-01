@@ -11,6 +11,7 @@
     "008-standards-mode.json",
     "009-content-height.json",
     "010-detail-dimensions.json",
-    "011-modern-detail-layout.json"
+    "011-modern-detail-layout.json",
+    "012-firefox-blind-slider.json"
   ]
 }
